@@ -3,7 +3,7 @@
 This repository contains the source code (HTML and CSS) for my CV (and the resulting pdf).
 
 The live version is hosted on GitHub Pages at the following URL:
-**[https://dadezz.github.io/cv/](https://dadezz.github.io/Curriculum/)**
+**[https://dadezz.github.io/Curriculum](https://dadezz.github.io/Curriculum/)**
 
 ---
 ## Disclaimer
