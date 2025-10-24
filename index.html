@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Curriculum Vitae</title>
+  <style>
+    @media print {
+      body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      /* modify the element when printing pdfs*/
+      .noprint {
+        display: none; 
+      }
+      .addmargin {
+        margin-top: 20px;
+      }
+    }
+
+    body {
+      text-align: justify;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      line-height: 1.3;
+      font-size: 13px;
+    }
+
+    .header {
+      background-color: #1c964f;
+      color: white;
+      display: flex;
+      align-items: center;
+      padding: 30px;
+      margin-bottom: 20px;
+    }
+
+    .photo {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 15px;
+      flex-shrink: 0;
+      border: 3px solid white;
+      background-color: white;
+    }
+
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .contact-info {
+      flex-grow: 1;
+    }
+
+    .contact-info h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+    
+    .contact-info h3 {
+      margin: 4px 0 8px 0;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.3;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: auto 1fr auto 1fr; 
+      grid-row-gap: 2px;
+      grid-column-gap: 10px;
+      font-size: 12px;
+      margin-top: 8px;
+      align-items: center;
+    }
+
+    .contact-grid span,
+    .contact-grid a {
+      padding: 1px 0;
+      white-space: nowrap;
+    }
+
+    .contact-grid .address-span {
+      grid-column: 2 / 5;
+    }
+
+
+    .section {
+      padding: 10px 30px;
+      page-break-inside: auto;
+    }
+
+    .section h2 {
+      color:  #1c964f;
+      border-bottom: 2px solid  #1c964f;
+      padding-bottom: 3px;
+      margin-top: 5px;
+      margin-bottom: 15px; 
+      font-size: 18px;
+    }
+
+    .item {
+      margin-bottom: 0;
+    }
+
+    .item h3 {
+      margin: 0;
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    .item span {
+      font-size: 13px;
+      color: #666;
+    }
+
+    .item p {
+      margin: 3px 0 0 0;
+      font-size: 13px;
+    }
+    
+    .timeline-group {
+      display: flex;
+      margin-bottom: 12px;
+    }
+
+    .timeline-logo-area {
+      width: 44px;
+      flex-shrink: 0;
+      margin-right: 12px;
+      text-align: center;
+    }
+
+    .timeline-logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 4px;
+      overflow: hidden; 
+    }
+    
+    .timeline-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain; 
+    }
+
+
+    .timeline-roles-area {
+      flex-grow: 1;
+      position: relative;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 20px;
+      padding-bottom: 10px;
+    }
+    
+    .timeline-item:last-child {
+        padding-bottom: 0;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 6px;
+      width: 9px;
+      height: 9px;
+      background-color: #aaa;
+      border-radius: 50%;
+      z-index: 2;
+    }
+    
+    .timeline-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 15px;
+      width: 1px;
+      height: calc(100% - 5px);
+      background-color: #ccc;
+      z-index: 1;
+    }
+
+
+    .columns {
+      display: flex;
+      gap: 20px;
+    }
+
+    .column {
+      flex: 1;
+    }
+
+    .link {
+      color: white;
+      text-decoration: none;
+    }
+    
+    .section a {
+        color: #1c964f;
+        text-decoration: none;
+    }
+    .section a:hover {
+        text-decoration: underline;
+    }
+    
+    .section ul {
+        margin: 5px 0 0 20px;
+        padding: 0;
+        font-size: 13px;
+    }
+    .section li {
+        margin-bottom: 2px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="photo">
+      <img src="images/immagine curriculum.jpeg" alt="Profile Photo">
+    </div>
+    <div class="contact-info">
+      <h1>Zambon Davide</h1>
+      <h3>Part-time MSc Computer Science Student at Ca’ Foscari University<br>
+      Part-time Software Developer (C++)</h3>
+      
+      <div class="contact-grid">
+        <span>LinkedIn:</span>
+        <a class="link" href="images/https://www.linkedin.com/in/davidezambon12/">davidezambon12</a>
+        
+        <span>GitHub:</span>
+        <a class="link" href="images/https://www.github.com/dadezz">dadezz</a>
+      </div>
+    </div>
+  </div>
+
+  </div>
+    <div class="noprint" style="background-color: lightgrey;"> 
+    <h2>Disclaimer</h2>
+    <p><bold>This page can seem weirdly designed for a standard website. In fact, it is optimized to be printed with the browser's html-to-pdf functionality</bold></p>
+  </div>
+
+  <div class="section">
+    <h2>About</h2>
+    <p>I earned a <b>BSc in Computer Science</b> at Ca’ Foscari University while working part-time as a <b>C++ software developer</b>.</p>
+    <p>My main role involves developing an <b>Autodesk Alias plugin</b> that integrates Radial Basis Function (RBF) morphing into the <b>industrial CAD workflow</b>, enabling rapid fluid-dynamics approximations.</p>
+    <p>I contributed to <b>backend development</b> and <b>database integration in Dart</b> at Bitcoin People, a startup redefining global payments through <b>Bitcoin</b> technology.</p>
+    <p>I participated in <b>CyberChallenge.IT</b>, a national <b>cybersecurity</b> competition, developing skills in <b>reverse engineering, cryptography, and attack/defense</b>. After qualifying via a CTF test, I competed nationally for the Ca’ Foscari team.</p>
+    <p>Outside work, I build personal projects to deepen my knowledge of <b>low-level algorithms</b>, backend systems, and applied ML. I am proficient in <b>C/C++</b> (preferred), <b>Java, Python</b> (Flask, SQLAlchemy, Scikit-learn, Keras), <b>PostgreSQL</b>, and <b>Linux</b>.</p>
+    <p>I am passionate about growing as a software engineer, with interest in mid/low-level development, security, and emerging technologies like Bitcoin and AI.</p>
+  </div>
+
+  <div class="section">
+    <h2>Work Experience</h2>
+
+    <div class="timeline-group">
+      <div class="timeline-logo-area">
+         <div class="timeline-logo"><img src="images/rbf_morph_logo.jpeg" alt="RBF Morph Logo"></div>
+      </div>
+      <div class="timeline-roles-area">
+        <div class="timeline-item item"> <h3>C++ Plugin Developer - RBF Morph</h3>
+          <span>November 2024 – Present | Full Remote</span>
+          <p>Developing a C++ plugin for Autodesk Alias to track geometry modifications, propagate mesh changes using RBF morphing, and estimate CFD result variations. This role has strengthened my C++ skills, Alias SDK usage, and computational geometry application. I have gained experience handling 3D data in CAD and use modern C++ libraries (Eigen, Nanoflann, Xatlas).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-group">
+      <div class="timeline-logo-area">
+         <div class="timeline-logo"><img src="images/bitcoinpeople_logo.jpeg" alt="Bitcoin People Logo"></div>
+      </div>
+      <div class="timeline-roles-area">
+        <div class="timeline-item item">
+          <h3>Dart Backend Developer - Bitcoin People</h3>
+          <span>May 2025 - September 2025 | Full Remote</span>
+          <p>Backend development in Dart; Database management; code refactoring following ORM principles using Drift.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="timeline-group">
+      <div class="timeline-logo-area">
+         <div class="timeline-logo"><img src="images/aspiag_service_srl_logo.jpeg" alt="Aspiag Service Logo"></div>
+      </div>
+      <div class="timeline-roles-area">
+        <div class="timeline-item item">
+          <h3>Various Experiences during studies</h3>
+          <span>August 2020 - December 2024 | Venice</span>
+          <p>I have worked consistently alongside my studies since age 18, including 2 years in a supermarket and 6 months in fast food. The full list is available on my LinkedIn profile.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section">
+    <h2>Education</h2>
+
+    <div class="timeline-group">
+      <div class="timeline-logo-area">
+         <div class="timeline-logo"><img src="images/cafoscari_logo.jpeg" alt="Ca' Foscari Logo"></div>
+      </div>
+      <div class="timeline-roles-area">
+        <div class="timeline-item item">
+          <h3>MSc: Cybersecurity and Software Development - Ca' Foscari University of Venice</h3>
+          <span>2025 – Present</span>
+          <p>Part-time student. Main topics: Software architecture and development methodologies; Software performance, scalability and correctness; System, Software and Internet Security; Cryptography; Formal methods for system verification; Applied probability; Quantum computing; Algorithms for massive data; Foundations of Machine Learning and AI; Functional programming languages.</p>
+        </div>
+        <div class="timeline-item item">
+          <h3>BSc: Computer Science - Ca' Foscari University of Venice</h3>
+          <span>2022 – 2025. </span>
+          <span>Final Grade: 107/110</span>
+          <p>Graduated in three years (107/110) while working part-time, maintaining a 27.8/30 exam average. Learned development best practices, cybersecurity fundamentals, computational theory, and algorithms.</p>
+        </div>
+      </div>
+    </div>
+    <div class="timeline-group addmargin"> 
+      <div class="timeline-logo-area addmargin"> 
+         <div class="timeline-logo"><img src="images/cyberchallengeit_logo.jpeg" alt="CyberChallengeIT Logo"></div>
+      </div>
+      <div class="timeline-roles-area addmargin">
+        <div class="timeline-item item">
+                    <h3>CyberChallenge Student and Finalist</h3> 
+          <span>February 2025 – July 2025 </span>
+          <p>CINI national training program on offensive/defensive cybersecurity. Included theory, practical CTFs, and Attack/Defense exercises. Selected to represent Ca’ Foscari in the national competition.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-group">
+      <div class="timeline-logo-area">
+         <div class="timeline-logo"><img src="images/unipd_logo.jpeg" alt="UniPD Logo"></div>
+      </div>
+      <div class="timeline-roles-area">
+        <div class="timeline-item item">
+          <h3>BSc: Astronomy - University of Padua</h3>
+          <span>2020 – 2022 </span>
+          <p>Completed two years of study (Calculus 1/2, Algebra, Physics 1/2, Astronomy, Chemistry, Statistics) before transitioning to Computer Science.</p>
+        </div>
+        <div class="timeline-item item">
+          <h3>Astronomy stagist - University of Padua</h3>
+          <span>2019 </span>
+          <p>Participation in the "Il Cielo come Laboratorio" project: a theory course and practical internship at the Asiago Observatory (University of Padua) introducing astronomy research. Conducted analysis of star clusters.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-group">
+      <div class="timeline-logo-area">
+         <div class="timeline-logo"><img src="images/morin_logo.png" alt="Liceo Morin Logo"></div>
+      </div>
+      <div class="timeline-roles-area">
+        <div class="timeline-item item">
+          <h3>Secondary School</h3>
+          <span>Liceo Scientifico Statale "U. Morin", Mestre (VE). Final Grade 98/100</span>
+          <p></p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section">
+    <h2>Personal Projects</h2>
+    <div class="item" style="margin-bottom: 8px;">
+      <h3>Huffman Compression Algorithm</h3>
+      <p>Lossless data compression algorithm implemented in C++. Builds a frequency-based binary tree to assign variable-length codes, reducing data size. <a href="https://github.com/dadezz/Huffman-Tree">Code on GitHub</a></p>
+    </div>
+    <div class="item" style="margin-bottom: 8px;">
+      <h3>Json Parser</h3>
+      <p>Json Parsing: creates manipulable data structures from JSON files. Implemented in C++. <a href="https://github.com/dadezz/ProgettoPEL">Code on GitHub</a></p>
+    </div>
+    <div class="item" style="margin-bottom: 8px;">
+      <h3>Problematic Internet Use - Machine Learning project</h3>
+      <p>Project for Data and Web Mining course. Objective: Predict Problematic Internet Use (SII) using biological markers from the HBN study. Trained an XGBoost model and an ensemble (Random Forest + Neural Network). Tech: Python, pandas, numpy, scikit-learn, Keras, XGBoost. <a href="https://github.com/dadezz/ML_Problematic_Internet_Use">Code on GitHub</a></p>
+    </div>
+    <div class="item" style="margin-bottom: 8px;">
+      <h3>Ecommerce Concept</h3>
+      <p>Simple e-commerce concept focused on the backend, built in Python using Flask, Flask-Login, PostgreSQL, and SQLAlchemy. <a href="https://github.com/dadezz/ecommerce">Code on GitHub</a></p>
+    </div>
+    <div class="item" style="margin-bottom: 8px;">
+      <h3>BigInteger library</h3>
+      <p>Prototype for an arbitrary-precision integer C++ implementation (development suspended). Implemented the Karatsuba algorithm for multiplication. <a href="https://github.com/dadezz/LongNumber">Code on GitHub</a></p>
+    </div>
+    <div class="item" style="margin-bottom: 8px;">
+      <h3>Android App</h3>
+      <p>Android app (concept similar to <i>subito.it</i>) for selling food near its expiration date, including an internal chat. No public code, avaiable if requested</p>
+    </div>
+  </div>
+
+  <div class="section columns">
+    <div class="column">
+      <h2>Hobbies</h2>
+      <ul>
+        <li>Mountaineering</li>
+        <li>Climbing</li>
+        <li>Hiking</li>
+      </ul>
+    </div>
+    <div class="column">
+      <h2>Languages and Drive licence</h2>
+      <p><strong>Languages:</strong> Italian (Native), English (Full professional proficiency), French (A1), Spanish (A1)</p>
+      <p><strong>Driving Licence:</strong> B, AM. Car owner</p>
+    </div>
+  </div>
+
+</body>
+</html>
