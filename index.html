@@ -1,423 +1,387 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Curriculum Vitae</title>
-  <style>
-    html {
-        -webkit-text-size-adjust: 100%;
-        -moz-text-size-adjust: 100%;
-        text-size-adjust: 100%;
-    }
-    @media print {
-      body {
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-      }
-      /* modify the element when printing pdfs*/
-      .noprint {
-        display: none; 
-      }
-      .addmargin {
-        margin-top: 20px;
-      }
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Davide Zambon - C++ Software Engineer</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
-    body {
-      text-align: justify;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      color: #333;
-      line-height: 1.3;
-      font-size: 13px;
-    }
+        :root {
+            --primary: #1c964f;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --bg: #ffffff;
+            --border: #e5e7eb;
+        }
 
-    .header {
-      background-color: #1c964f;
-      color: white;
-      display: flex;
-      align-items: center;
-      padding: 30px;
-      margin-bottom: 20px;
-    }
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
 
-    .photo {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      overflow: hidden;
-      margin-right: 15px;
-      flex-shrink: 0;
-      border: 3px solid white;
-      background-color: white;
-    }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            line-height: 1.5;
+            margin: 0;
+            padding: 0;
+            background: #f3f4f6;
+            font-size: 14px; /* Leggibile ma compatto */
+        }
 
-    .photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+        .page {
+            max-width: 210mm;
+            min-height: 297mm;
+            margin: 20px auto;
+            background: var(--bg);
+            padding: 40px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
 
-    .contact-info {
-      flex-grow: 1;
-    }
+        /* HEADER */
+        header {
+            display: flex;
+            gap: 30px;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+            align-items: center;
+        }
 
-    .contact-info h1 {
-      margin: 0;
-      font-size: 24px;
-    }
-    
-    .contact-info h3 {
-      margin: 4px 0 8px 0;
-      font-size: 14px;
-      font-weight: 300;
-      line-height: 1.3;
-    }
+        .photo-container {
+            width: 100px;
+            height: 100px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid var(--primary);
+            flex-shrink: 0;
+        }
 
-    .contact-grid {
-      display: grid;
-      grid-template-columns: auto 1fr auto 1fr; 
-      grid-row-gap: 2px;
-      grid-column-gap: 10px;
-      font-size: 12px;
-      margin-top: 8px;
-      align-items: center;
-    }
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-    .contact-grid span,
-    .contact-grid a {
-      padding: 1px 0;
-      white-space: nowrap;
-    }
+        .header-info h1 {
+            margin: 0;
+            font-size: 28px;
+            color: #111;
+            letter-spacing: -0.5px;
+        }
 
-    .contact-grid .address-span {
-      grid-column: 2 / 5;
-    }
+        .header-info h2 {
+            margin: 5px 0 10px 0;
+            font-size: 16px;
+            color: var(--primary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
+        .contacts {
+            display: flex;
+            gap: 15px;
+            font-size: 13px;
+            color: var(--text-light);
+            flex-wrap: wrap;
+        }
 
-    .section {
-      padding: 10px 30px;
-      page-break-inside: auto;
-    }
+        .contacts a {
+            color: var(--text-light);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .contacts a:hover {
+            color: var(--primary);
+        }
 
-    .section h2 {
-      color:  #1c964f;
-      border-bottom: 2px solid  #1c964f;
-      padding-bottom: 3px;
-      margin-top: 5px;
-      margin-bottom: 15px; 
-      font-size: 18px;
-    }
+        /* SECTIONS */
+        section {
+            margin-bottom: 20px;
+        }
 
-    .item {
-      margin-bottom: 0;
-    }
+        h3.section-title {
+            font-size: 14px;
+            text-transform: uppercase;
+            color: var(--text-light);
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
 
-    .item h3 {
-      margin: 0;
-      font-size: 15px;
-      font-weight: bold;
-    }
+        /* EXPERIENCE & EDUCATION ITEMS */
+        .entry {
+            margin-bottom: 15px;
+        }
 
-    .item span {
-      font-size: 13px;
-      color: #666;
-    }
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 4px;
+        }
 
-    .item p {
-      margin: 3px 0 0 0;
-      font-size: 13px;
-    }
-    
-    .timeline-group {
-      display: flex;
-      margin-bottom: 12px;
-    }
+        .entry-title {
+            font-weight: 700;
+            font-size: 15px;
+            color: #111;
+        }
 
-    .timeline-logo-area {
-      width: 44px;
-      flex-shrink: 0;
-      margin-right: 12px;
-      text-align: center;
-    }
+        .entry-company {
+            color: var(--primary);
+            font-weight: 600;
+        }
 
-    .timeline-logo {
-      width: 44px;
-      height: 44px;
-      border-radius: 4px;
-      overflow: hidden; 
-    }
-    
-    .timeline-logo img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain; 
-    }
+        .entry-date {
+            font-size: 12px;
+            color: var(--text-light);
+            font-feature-settings: "tnum";
+            font-variant-numeric: tabular-nums;
+        }
 
+        .entry-content {
+            font-size: 13px;
+            color: #374151;
+        }
 
-    .timeline-roles-area {
-      flex-grow: 1;
-      position: relative;
-    }
+        .entry-content ul {
+            margin: 5px 0;
+            padding-left: 18px;
+        }
 
-    .timeline-item {
-      position: relative;
-      padding-left: 20px;
-      padding-bottom: 10px;
-    }
-    
-    .timeline-item:last-child {
-        padding-bottom: 0;
-    }
+        .entry-content li {
+            margin-bottom: 3px;
+        }
 
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 6px;
-      width: 9px;
-      height: 9px;
-      background-color: #aaa;
-      border-radius: 50%;
-      z-index: 2;
-    }
-    
-    .timeline-item:not(:last-child)::after {
-      content: '';
-      position: absolute;
-      left: 4px;
-      top: 15px;
-      width: 1px;
-      height: calc(100% - 5px);
-      background-color: #ccc;
-      z-index: 1;
-    }
+        /* SKILLS GRID */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
 
+        .skill-category strong {
+            display: block;
+            color: var(--primary);
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
 
-    .columns {
-      display: flex;
-      gap: 20px;
-    }
+        .skill-category span {
+            font-size: 13px;
+            display: block;
+        }
 
-    .column {
-      flex: 1;
-    }
+        /* PROJECTS COMPACT */
+        .project-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
 
-    .link {
-      color: white;
-      text-decoration: none;
-    }
-    
-    .section a {
-        color: #1c964f;
-        text-decoration: none;
-    }
-    .section a:hover {
-        text-decoration: underline;
-    }
-    
-    .section ul {
-        margin: 5px 0 0 20px;
-        padding: 0;
-        font-size: 13px;
-    }
-    .section li {
-        margin-bottom: 2px;
-    }
+        .project-item h4 {
+            margin: 0 0 4px 0;
+            font-size: 14px;
+        }
 
-  </style>
+        .project-item h4 a {
+            color: #111;
+            text-decoration: none;
+            border-bottom: 1px dotted var(--text-light);
+        }
+
+        .project-item p {
+            margin: 0;
+            font-size: 12px;
+            color: #4b5563;
+        }
+
+        /* PRINT MEDIA QUERY */
+        @media print {
+            body { 
+                background: white; 
+            }
+            .page { 
+                margin: 0; 
+                box-shadow: none; 
+                padding: 20px 0; 
+            }
+            a { 
+                text-decoration: none; 
+                color: var(--text-light); 
+            }
+    </style>
 </head>
 <body>
 
-  <div class="header">
-    <div class="photo">
-      <img src="images/immagine curriculum.jpeg" alt="Profile Photo">
-    </div>
-    <div class="contact-info">
-      <h1>Zambon Davide</h1>
-      <h3>Part-time MSc Computer Science Student at Ca’ Foscari University<br>
-      Part-time Software Developer (C++)</h3>
-      
-      <div class="contact-grid">
-        <span>LinkedIn:</span>
-        <a class="link" href="https://www.linkedin.com/in/davidezambon12/">davidezambon12</a>
-        
-        <span>GitHub:</span>
-        <a class="link" href="https://www.github.com/dadezz">dadezz</a>
-      </div>
-    </div>
-  </div>
+    <div class="page">
+        <!-- HEADER -->
+        <header>
+            <div class="photo-container">
+                <!-- Replace with your actual image file path -->
+                <img src="images/immagine curriculum.jpeg" alt="Davide Zambon">
+            </div>
+            <div class="header-info">
+                <h1>Davide Zambon</h1>
+                <h2>C++ Software Engineer | Performance Specialist</h2>
+                <p style="font-size: 13px; margin: 5px 0 10px 0; color: #4b5563;">
+                  MSc Cybersecurity student specializing in <strong>Low-Level Optimization</strong>, <strong>Data-Oriented Design</strong>, and <strong>Computational Geometry</strong>.
+                  Merging mathematical rigor from Astronomy with modern software engineering to build safe, correct, and high-performance systems.
+                </p>
 
-  </div>
-    <div class="noprint" style="background-color: lightgrey;"> 
-    <h2>Disclaimer</h2>
-    <p><bold>This page can seem weirdly designed for a standard website. In fact, it is optimized to be printed with the browser's html-to-pdf functionality</bold></p>
-  </div>
+                <div class="contacts">  
+                    <a href="https://www.linkedin.com/in/davidezambon12/">linkedin.com/in/davidezambon12</a>
+                    <span>•</span>
+                    <a href="https://github.com/dadezz">github.com/dadezz</a>
+                </div>
+            </div>
+        </header>
 
-  <div class="section">
-    <h2>About</h2>
-    <p>I earned a <b>BSc in Computer Science</b> at Ca’ Foscari University while working part-time as a <b>C++ software developer</b>.</p>
-    <p>My main role involves developing an <b>Autodesk Alias plugin</b> that integrates Radial Basis Function (RBF) morphing into the <b>industrial CAD workflow</b>, enabling rapid fluid-dynamics approximations.</p>
-    <p>I contributed to <b>backend development</b> and <b>database integration in Dart</b> at Bitcoin People, a startup redefining global payments through <b>Bitcoin</b> technology.</p>
-    <p>I participated in <b>CyberChallenge.IT</b>, a national <b>cybersecurity</b> competition, developing skills in <b>reverse engineering, cryptography, and attack/defense</b>. After qualifying via a CTF test, I competed nationally for the Ca’ Foscari team.</p>
-    <p>Outside work, I build personal projects to deepen my knowledge of <b>low-level algorithms</b>, backend systems, and applied ML. I am proficient in <b>C/C++</b> (preferred), <b>Java, Python</b> (Flask, SQLAlchemy, Scikit-learn, Keras), <b>PostgreSQL</b>, and <b>Linux</b>.</p>
-    <p>I am passionate about growing as a software engineer, with interest in mid/low-level development, security, and emerging technologies like Bitcoin and AI.</p>
-  </div>
+        <!-- WORK EXPERIENCE -->
+        <section>
+            <h3 class="section-title">Professional Experience</h3>
 
-  <div class="section">
-    <h2>Work Experience</h2>
+            <div class="entry">
+                <div class="entry-header">
+                    <div>
+                        <span class="entry-title">C++ Plugin Developer</span> | <span class="entry-company">RBF Morph</span>
+                    </div>
+                    <span class="entry-date">Nov 2024 – Present</span>
+                </div>
+                <div class="entry-content">
+                    <ul>
+                        <li><strong>Performance Engineering:</strong> Developing a high-performance C++20 plugin for Autodesk Alias to handle real-time mesh deformation.</li>
+                        <li><strong>Optimization:</strong> Implemented <strong>Data-Oriented Design</strong> principles to optimize the integration of RBF (Radial Basis Function) morphing algorithms, significantly reducing latency in viewport updates</li>
+                        <li><strong>Complex Integration:</strong> Interfacing with proprietary CAD SDKs, managing memory to avoid overhead, and utilizing Eigen/Nanoflann for efficient 3D spatial queries.</li>
+                        <li><strong>Tech Stack:</strong> C++20, Alias SDK, Eigen, Nanoflann, CMake.</li>
+                    </ul>
+                </div>
+            </div>
 
-    <div class="timeline-group">
-      <div class="timeline-logo-area">
-         <div class="timeline-logo"><img src="images/rbf_morph_logo.jpeg" alt="RBF Morph Logo"></div>
-      </div>
-      <div class="timeline-roles-area">
-        <div class="timeline-item item"> <h3>C++ Plugin Developer - RBF Morph</h3>
-          <span>November 2024 – Present | Full Remote</span>
-          <p>Developing a C++ plugin for Autodesk Alias to track geometry modifications, propagate mesh changes using RBF morphing, and estimate CFD result variations. This role has strengthened my C++ skills, Alias SDK usage, and computational geometry application. I have gained experience handling 3D data in CAD and use modern C++ libraries (Eigen, Nanoflann, Xatlas).</p>
-        </div>
-      </div>
-    </div>
+            <div class="entry">
+                <div class="entry-header">
+                    <div>
+                        <span class="entry-title">Dart Backend Developer</span> | <span class="entry-company">Bitcoin People</span>
+                    </div>
+                    <span class="entry-date">May 2025 – Sep 2025</span>
+                </div>
+                <div class="entry-content">
+                    <ul>
+                        <li>Designed backend and database architecture in Dart. Performed extensive ORM refactoring (Drift) to improve security, maintainability, database query performance and type safety.</li>
+                        <li>Implemented secure transaction handling logic within the Bitcoin protocol context.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-    <div class="timeline-group">
-      <div class="timeline-logo-area">
-         <div class="timeline-logo"><img src="images/bitcoinpeople_logo.jpeg" alt="Bitcoin People Logo"></div>
-      </div>
-      <div class="timeline-roles-area">
-        <div class="timeline-item item">
-          <h3>Dart Backend Developer - Bitcoin People</h3>
-          <span>May 2025 - September 2025 | Full Remote</span>
-          <p>Backend development in Dart; Database management; code refactoring following ORM principles using Drift.</p>
-        </div>
-      </div>
-    </div>
-    
-    <div class="timeline-group">
-      <div class="timeline-logo-area">
-         <div class="timeline-logo"><img src="images/aspiag_service_srl_logo.jpeg" alt="Aspiag Service Logo"></div>
-      </div>
-      <div class="timeline-roles-area">
-        <div class="timeline-item item">
-          <h3>Various Experiences during studies</h3>
-          <span>August 2020 - December 2024 | Venice</span>
-          <p>I have worked consistently alongside my studies since age 18, including 2 years in a supermarket and 6 months in fast food. The full list is available on my LinkedIn profile.</p>
-        </div>
-      </div>
-    </div>
+        <!-- EDUCATION -->
+        <section>
+            <h3 class="section-title">Education & Awards</h3>
 
-  </div>
+            <div class="entry">
+                <div class="entry-header">
+                    <div><span class="entry-title">MSc Cybersecurity & Software Dev.</span> | Ca' Foscari University</div>
+                    <span class="entry-date">2025 – Present</span>
+                </div>
+                <div class="entry-content">
+                    Focus: <em>Software Correctness, Formal Methods, Cryptography, Low-level Security.</em>
+                </div>
+            </div>
 
-  <div class="section">
-    <h2>Education</h2>
+            <div class="entry">
+                <div class="entry-header">
+                    <div><span class="entry-title">National Finalist</span> | CyberChallenge.IT</div>
+                    <span class="entry-date">Feb 2025 – Jul 2025</span>
+                </div>
+                <div class="entry-content">
+                    Selected to represent Ca' Foscari. Intensive training in <strong>Reverse Engineering</strong>, <strong>Binary Exploitation</strong>, and <strong>Cryptography</strong>.
+                </div>
+            </div>
 
-    <div class="timeline-group">
-      <div class="timeline-logo-area">
-         <div class="timeline-logo"><img src="images/cafoscari_logo.jpeg" alt="Ca' Foscari Logo"></div>
-      </div>
-      <div class="timeline-roles-area">
-        <div class="timeline-item item">
-          <h3>MSc: Cybersecurity and Software Development - Ca' Foscari University of Venice</h3>
-          <span>2025 – Present</span>
-          <p>Part-time student. Main topics: Software architecture and development methodologies; Software performance, scalability and correctness; System, Software and Internet Security; Cryptography; Formal methods for system verification; Applied probability; Quantum computing; Algorithms for massive data; Foundations of Machine Learning and AI; Functional programming languages.</p>
-        </div>
-        <div class="timeline-item item">
-          <h3>BSc: Computer Science - Ca' Foscari University of Venice</h3>
-          <span>2022 – 2025. </span>
-          <span>Final Grade: 106/110</span>
-          <p>Graduated in three years (106/110) while working part-time, maintaining a 27.8/30 exam average. Learned development best practices, cybersecurity fundamentals, computational theory, and algorithms.</p>
-        </div>
-      </div>
-    </div>
-    <div class="timeline-group addmargin"> 
-      <div class="timeline-logo-area addmargin"> 
-         <div class="timeline-logo"><img src="images/cyberchallengeit_logo.jpeg" alt="CyberChallengeIT Logo"></div>
-      </div>
-      <div class="timeline-roles-area addmargin">
-        <div class="timeline-item item">
-                    <h3>CyberChallenge Student and Finalist</h3> 
-          <span>February 2025 – July 2025 </span>
-          <p>CINI national training program on offensive/defensive cybersecurity. Included theory, practical CTFs, and Attack/Defense exercises. Selected to represent Ca’ Foscari in the national competition.</p>
-        </div>
-      </div>
-    </div>
+            <div class="entry">
+                <div class="entry-header">
+                    <div><span class="entry-title">BSc Computer Science</span> | Ca' Foscari University</div>
+                    <span class="entry-date">Final Grade: 106/110</span>
+                </div>
+            </div>
 
-    <div class="timeline-group">
-      <div class="timeline-logo-area">
-         <div class="timeline-logo"><img src="images/unipd_logo.jpeg" alt="UniPD Logo"></div>
-      </div>
-      <div class="timeline-roles-area">
-        <div class="timeline-item item">
-          <h3>BSc: Astronomy - University of Padua</h3>
-          <span>2020 – 2022 </span>
-          <p>Completed two years of study (Calculus 1/2, Algebra, Physics 1/2, Astronomy, Chemistry, Statistics) before transitioning to Computer Science.</p>
-        </div>
-        <div class="timeline-item item">
-          <h3>Astronomy stagist - University of Padua</h3>
-          <span>2019 </span>
-          <p>Participation in the "Il Cielo come Laboratorio" project: a theory course and practical internship at the Asiago Observatory (University of Padua) introducing astronomy research. Conducted analysis of star clusters.</p>
-        </div>
-      </div>
-    </div>
+            <div class="entry">
+                <div class="entry-header">
+                    <div><span class="entry-title">BSc Astronomy (Incomplete)</span> | University of Padua</div>
+                    <span class="entry-date">2020 – 2022</span>
+                </div>
+                <div class="entry-content">
+                    Completed 2 years of rigorous Physics and Calculus before switching to Computer Science. Provided the mathematical foundation for current work in Computational Geometry.
+                </div>
+            </div>
+        </section>
 
-    <div class="timeline-group">
-      <div class="timeline-logo-area">
-         <div class="timeline-logo"><img src="images/morin_logo.png" alt="Liceo Morin Logo"></div>
-      </div>
-      <div class="timeline-roles-area">
-        <div class="timeline-item item">
-          <h3>Secondary School</h3>
-          <span>Liceo Scientifico Statale "U. Morin", Mestre (VE). Final Grade 98/100</span>
-          <p></p>
-        </div>
-      </div>
-    </div>
+        <!-- TECHNICAL SKILLS -->
+        <section>
+            <h3 class="section-title">Technical Stack</h3>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <strong>Core & Performance</strong>
+                    <span>C++ (up to 20), Rust (Basic), Memory Management, Data-Oriented Design, STL.</span>
+                </div>
+                <div class="skill-category">
+                    <strong>Systems & Tools</strong>
+                    <span>Linux, Git, GDB, Valgrind, Bash Scripting.</span>
+                </div>
+                <div class="skill-category">
+                    <strong>Domain Specific</strong>
+                    <span>Computational Geometry, Bitcoin Protocol (P2P/Script), CAD SDKs.</span>
+                </div>
+            </div>
+        </section>
 
-  </div>
+        <!-- PROJECTS -->
+        <section>
+            <h3 class="section-title">Selected Engineering Projects</h3>
+            <div class="project-grid">
+                <div class="project-item">
+                    <h4><a href="https://github.com/dadezz/Huffman-Tree">Huffman Compression (C++)</a></h4>
+                    <p>Low-level implementation of lossless compression. Focus on memory-efficient binary tree structures and bit-manipulation.</p>
+                </div>
+                <div class="project-item">
+                    <h4><a href="https://github.com/dadezz/LongNumber">BigInteger Library (C++)</a></h4>
+                    <p>Arbitrary-precision integer arithmetic engine. Implemented <strong>Karatsuba algorithm</strong> for optimized multiplication speed.</p>
+                </div>
+                <div class="project-item">
+                    <h4><a href="https://github.com/dadezz/ProgettoPEL">Custom JSON Parser (C++)</a></h4>
+                    <p>Recursive descent parser built from scratch. Focus on standard compliance and robust error handling without external libs.</p>
+                </div>
+                <div class="project-item">
+                    <h4><a href="https://github.com/dadezz/ML_Problematic_Internet_Use">Problematic Internet Use (ML)</a></h4>
+                    <p>Data mining project using XGBoost, Random Forest and Keras. Analysis of biological markers from large datasets (HBN study).</p>
+                </div>
+                <div class="project-item">
+                    <h4><a href="#">MyFood application</a></h4>
+                    <p>Java developing of an Android application to manage and sell items, with an internal chat. Code avaiable on demand</p>
+                </div>
+            </div>
+        </section>
 
-  <div class="section">
-    <h2>Personal Projects</h2>
-    <div class="item" style="margin-bottom: 8px;">
-      <h3>Huffman Compression Algorithm</h3>
-      <p>Lossless data compression algorithm implemented in C++. Builds a frequency-based binary tree to assign variable-length codes, reducing data size. <a href="https://github.com/dadezz/Huffman-Tree">Code on GitHub</a></p>
+        <!-- LANGUAGES & INTERESTS -->
+        <section style="margin-bottom: 0;">
+            <div style="display: flex; gap: 40px; font-size: 13px; color: #374151;">
+                <div>
+                    <strong>Languages:</strong> Italian (Native), English (Full Professional).
+                </div>
+                <div>
+                    <strong>Interests:</strong> Mountaineering, Climbing, Hiking (Alpinism).
+                </div>
+            </div>
+        </section>
     </div>
-    <div class="item" style="margin-bottom: 8px;">
-      <h3>Json Parser</h3>
-      <p>Json Parsing: creates manipulable data structures from JSON files. Implemented in C++. <a href="https://github.com/dadezz/ProgettoPEL">Code on GitHub</a></p>
-    </div>
-    <div class="item" style="margin-bottom: 8px;">
-      <h3>Problematic Internet Use - Machine Learning project</h3>
-      <p>Project for Data and Web Mining course. Objective: Predict Problematic Internet Use (SII) using biological markers from the HBN study. Trained an XGBoost model and an ensemble (Random Forest + Neural Network). Tech: Python, pandas, numpy, scikit-learn, Keras, XGBoost. <a href="https://github.com/dadezz/ML_Problematic_Internet_Use">Code on GitHub</a></p>
-    </div>
-    <div class="item" style="margin-bottom: 8px;">
-      <h3>Ecommerce Concept</h3>
-      <p>Simple e-commerce concept focused on the backend, built in Python using Flask, Flask-Login, PostgreSQL, and SQLAlchemy. <a href="https://github.com/dadezz/ecommerce">Code on GitHub</a></p>
-    </div>
-    <div class="item" style="margin-bottom: 8px;">
-      <h3>BigInteger library</h3>
-      <p>Prototype for an arbitrary-precision integer C++ implementation (development suspended). Implemented the Karatsuba algorithm for multiplication. <a href="https://github.com/dadezz/LongNumber">Code on GitHub</a></p>
-    </div>
-    <div class="item" style="margin-bottom: 8px;">
-      <h3>Android App</h3>
-      <p>Android app (concept similar to <i>subito.it</i>) for selling food near its expiration date, including an internal chat. No public code, avaiable if requested</p>
-    </div>
-  </div>
-
-  <div class="section columns">
-    <div class="column">
-      <h2>Hobbies</h2>
-      <ul>
-        <li>Mountaineering</li>
-        <li>Climbing</li>
-        <li>Hiking</li>
-      </ul>
-    </div>
-    <div class="column">
-      <h2>Languages and Drive licence</h2>
-      <p><strong>Languages:</strong> Italian (Native), English (Full professional proficiency), French (A1), Spanish (A1)</p>
-      <p><strong>Driving Licence:</strong> B, AM. Car owner</p>
-    </div>
-  </div>
 
 </body>
 </html>
